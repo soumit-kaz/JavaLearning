@@ -1,0 +1,73 @@
+# Compiled output
+*.class
+out/
+bin/
+build/
+target/
+classes/
+
+# Packaged artifacts
+*.jar
+*.war
+*.ear
+*.nar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs and crash dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# Maven / Gradle
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# VS Code (keep shared settings, ignore personal state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+.history/
+*.vsix
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse / Java language server metadata
+.project
+.classpath
+.settings/
+.factorypath
+.metadata/
+.recommenders/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editor temp files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+
+# Environment files
+.env
+.env.*
