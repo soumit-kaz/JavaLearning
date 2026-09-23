@@ -6,7 +6,7 @@ public class M17L01_ArrayList {
     public static void main(String[] args) {
         // an array has a fixed size; an ArrayList grows by itself
         // declare with the interface (List), create with the class (ArrayList)
-        List<String> fruits = new ArrayList<>();
+        ArrayList<String> fruits = new ArrayList<>();
         fruits.add("apple");
         fruits.add("banana");
         fruits.add("cherry");
