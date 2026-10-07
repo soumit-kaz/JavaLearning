@@ -1,29 +1,28 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class M19L03_WriteTextFile {
 
     public static void main(String[] args) throws IOException {
-        Path file = Path.of("write-demo.txt");
+        Path file1 = Path.of("D:\\JavaLearning\\FilesOutput\\write-demo.txt");
 
-        // write one piece of text; the file is made if it is not there
-        Files.writeString(file, "Hello, files!\n");
-        System.out.println("wrote: " + Files.readString(file).strip());
+        // write a line to the file
+        Files.writeString(file1, "Line 1\n", StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        Files.writeString(file1, "Line 2\n", StandardOpenOption.APPEND);
+        Files.writeString(file1, "Line 3\nLine 4\n", StandardOpenOption.APPEND);
 
-        // writing again throws away what was in the file before
-        Files.writeString(file, "second write\n");
-        System.out.println("now: " + Files.readString(file).strip());
+        // read all the lines back from the file
 
-        // \n ends a line, so this makes three lines
-        Files.writeString(file, "one\ntwo\nthree\n");
-        System.out.println("lines: " + Files.readAllLines(file));
+        List <String> lines = Files.readAllLines(file1);
+        System.out.println("lines: " + lines);
 
-        // or give a list and let Java add the line ends
-        Files.write(file, List.of("alpha", "beta"));
-        System.out.println("lines: " + Files.readAllLines(file));
+        Path file2 = Path.of("D:\\JavaLearning\\FilesOutput\\write-demo2.txt");
 
-        Files.delete(file);
+        Files.copy(file1, file2);
+
+        // Files.delete(file1);
     }
 }
