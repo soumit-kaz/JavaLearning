@@ -24,6 +24,8 @@ Learn Java step by step. Every module has small **lessons** and a set of **probl
 | 16 | [Interfaces](16_Interfaces) | [list](16_Interfaces/problems/PROBLEMS.md) |
 | 17 | [Collections (Java's STL)](17_Collections) | [list](17_Collections/problems/PROBLEMS.md) |
 | 18 | [Data Structures](18_DataStructures) | [list](18_DataStructures/PROBLEMS.md) |
+| 19 | [File Handling](19_FileHandling) | [list](19_FileHandling/problems/PROBLEMS.md) |
+| 20 | [Console Input and Output](20_ConsoleIO) | [list](20_ConsoleIO/problems/PROBLEMS.md) |
 
 Each module folder looks like this:
 

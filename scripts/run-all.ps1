@@ -32,7 +32,9 @@ foreach ($dir in $dirs) {
         $cls = [IO.Path]::GetFileNameWithoutExtension($src)
         $log = Join-Path $dest "$cls.log"
         Push-Location $dir
-        & $Java -cp $dest $cls *> $log
+        # $null as the input means a lesson that reads the console sees
+        # "no input" instead of eating this script's own input
+        $null | & $Java -cp $dest $cls *> $log
         $code = $LASTEXITCODE
         Pop-Location
         $testFailed = $rel -like "*problems*" -and (Select-String -Path $log -Pattern '\b(FAIL|MISMATCH)\b' -Quiet)

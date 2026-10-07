@@ -28,7 +28,9 @@ while IFS= read -r dir; do
     fi
     for src in "$dir"/*.java; do
         cls="$(basename "$src" .java)"
-        if ! (cd "$dir" && "$JAVA" -cp "$dest" "$cls" > "$dest/$cls.log" 2>&1); then
+        # stdin comes from /dev/null so a lesson that reads the console
+        # sees "no input" instead of eating this script's own input
+        if ! (cd "$dir" && "$JAVA" -cp "$dest" "$cls" > "$dest/$cls.log" 2>&1 < /dev/null); then
             fail=$((fail + 1))
             failed+=("$rel/$cls")
             echo "FAIL  $rel/$cls  (see out/$rel/$cls.log)"
