@@ -3,12 +3,7 @@ import java.util.Scanner;
 public class M20L04_ReadingNumbers {
 
     public static void main(String[] args) {
-        try (Scanner in = new Scanner(System.in)) {
-
-            if (!in.hasNextLine()) {
-                System.out.println("No input. Run this lesson yourself and type a number.");
-                return;
-            }
+            Scanner in = new Scanner(System.in);
 
             // what you type is text, so it has to be turned into a number
             System.out.print("A number: ");
@@ -28,6 +23,6 @@ public class M20L04_ReadingNumbers {
                 }
             }
             System.out.println("age: " + age);
-        }
+        
     }
 }
