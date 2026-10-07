@@ -5,29 +5,30 @@ import java.util.Scanner;
 public class M20L05_ReadingManyLines {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
-        if (!in.hasNextLine()) {
-            System.out.println("No input. Run this lesson yourself and type a few lines.");
-            System.out.println("Finish the input with Ctrl+D on macOS and Linux, or Ctrl+Z on Windows.");
-            return;
-        }
-
-        // read line after line until the input is finished.
-        // hasNextLine turns false when there is nothing left.
         List<String> lines = new ArrayList<>();
-        while (in.hasNextLine()) {
-            String line = in.nextLine();
 
-            // stop early when the person types "end"
-            if (line.equals("end")) {
-                System.out.println("stopping at 'end'");
-                break;
+        try (Scanner in = new Scanner(System.in)) {
+
+            if (!in.hasNextLine()) {
+                System.out.println("No input. Run this lesson yourself and type a few lines.");
+                System.out.println("Finish the input with Ctrl+D on macOS and Linux, or Ctrl+Z on Windows.");
+                return;
             }
-            lines.add(line);
-            System.out.println("line " + lines.size() + ": " + line);
+
+            // read line after line until the input is finished.
+            // hasNextLine turns false when there is nothing left.
+            while (in.hasNextLine()) {
+                String line = in.nextLine();
+
+                // stop early when the person types "end"
+                if (line.equals("end")) {
+                    System.out.println("stopping at 'end'");
+                    break;
+                }
+                lines.add(line);
+                System.out.println("line " + lines.size() + ": " + line);
+            }
         }
-        in.close();
 
         System.out.println("read " + lines.size() + " lines");
 

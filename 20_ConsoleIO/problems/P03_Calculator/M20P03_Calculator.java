@@ -28,9 +28,10 @@ public class M20P03_Calculator {
     }
 
     static void test(String input, String expected) {
-        Scanner in = new Scanner(input);
-        String got = calculate(in);
-        in.close();
+        String got;
+        try (Scanner in = new Scanner(input)) {
+            got = calculate(in);
+        }
 
         String label = "[" + input.replace("\n", " ") + "] -> " + got;
         if (!got.equals(expected)) {

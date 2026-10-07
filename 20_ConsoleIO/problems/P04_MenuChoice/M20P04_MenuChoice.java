@@ -21,9 +21,10 @@ public class M20P04_MenuChoice {
     }
 
     static void test(String input, int expected) {
-        Scanner in = new Scanner(input);
-        int got = readChoice(in);
-        in.close();
+        int got;
+        try (Scanner in = new Scanner(input)) {
+            got = readChoice(in);
+        }
 
         String label = "[" + input.replace("\n", "\\n") + "] -> " + got;
         if (got != expected) {

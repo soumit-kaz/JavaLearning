@@ -13,9 +13,10 @@ public class M20P01_Greeting {
     // a Scanner can read a String, which makes testing easy.
     // The real program would use new Scanner(System.in).
     static void test(String input, String expected) {
-        Scanner in = new Scanner(input);
-        String got = greet(in);
-        in.close();
+        String got;
+        try (Scanner in = new Scanner(input)) {
+            got = greet(in);
+        }
 
         String label = "[" + input.replace("\n", "\\n") + "] -> " + got;
         if (!got.equals(expected)) {

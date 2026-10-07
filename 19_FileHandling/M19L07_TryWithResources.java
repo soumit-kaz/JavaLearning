@@ -16,10 +16,13 @@ public class M19L07_TryWithResources {
             System.out.println("first line: " + in.readLine());
         }
 
-        // the old way: close it yourself at the end
+        // the old way: close it yourself in a finally block, which always runs
         BufferedReader in = Files.newBufferedReader(file);
-        System.out.println("old way: " + in.readLine());
-        in.close();
+        try {
+            System.out.println("old way: " + in.readLine());
+        } finally {
+            in.close();
+        }
 
         // two files at the same time, separated by a semicolon
         Path copy = Path.of("resource-copy.txt");
